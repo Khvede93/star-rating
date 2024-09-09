@@ -32,6 +32,7 @@ function App() {
             onMouseEnter={() => handleMouseOver(ind)}
             onMouseLeave={() => handleMouseLeave(ind)}
             size={40}
+            className={ind <= (rating || hover) ? 'active' : 'inActive'}
           />
         );
       })}
