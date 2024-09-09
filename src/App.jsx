@@ -6,28 +6,35 @@ function App() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
-  function handleClick(getI) {
-    if (getI !== rating) {
-      setRating(getI + 1);
+  function handleClick(getInd) {
+    if (getInd !== rating) {
+      setRating(getInd);
     }
   }
-  function handleMouseOver() {}
-  function handleMouseLeave() {}
-
-  console.log(rating);
+  function handleMouseOver(getInd) {
+    if (getInd !== hover) {
+      setHover(getInd);
+    }
+  }
+  function handleMouseLeave(getInd) {
+    setHover(0);
+  }
 
   const numberOfStars = 10;
   return (
     <div className='star-rating'>
-      {[...Array(numberOfStars)].map((_, i) => (
-        <FaStar
-          key={i}
-          onClick={() => handleClick(i)}
-          onMouseEnter={handleMouseOver}
-          onMouseLeave={handleMouseLeave}
-          size={40}
-        />
-      ))}
+      {[...Array(numberOfStars)].map((_, ind) => {
+        ind += 1;
+        return (
+          <FaStar
+            key={ind}
+            onClick={() => handleClick(ind)}
+            onMouseEnter={() => handleMouseOver(ind)}
+            onMouseLeave={() => handleMouseLeave(ind)}
+            size={40}
+          />
+        );
+      })}
     </div>
   );
 }
