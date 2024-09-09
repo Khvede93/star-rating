@@ -1,5 +1,11 @@
+.starRating {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .active {
-  color: rgb(203, 203, 23);
+  color: gold;
 }
 
 .inActive {
